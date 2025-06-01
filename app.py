@@ -13,8 +13,14 @@ import json
 from dotenv import load_dotenv
 
 # --- Configuration and Setup ---
-load_dotenv()
-GOOGLE_API_KEY = os.getenv("API_KEY") # Ensure your .env file has API_KEY=your_google_api_key
+try:
+    GOOGLE_API_KEY = st.secrets["API_KEY"] # Or st.secrets["GOOGLE_API_KEY"] if you name it that way in secrets
+except KeyError:
+    st.error("API_KEY not found in Streamlit secrets. Please add it to your secrets.toml or deployment configuration.")
+    st.stop()
+except Exception as e: # Catch other potential errors like st.secrets not being available in some contexts
+    st.error(f"Could not load API_KEY from Streamlit secrets: {e}")
+    st.stop()
 DOCS_DIRECTORY = "C:\\Users\\Computer HuB\\Desktop\\Projects\\Audit RAG\\docs"  # Directory containing your documents
 FAISS_INDEX_DIR = "faiss_index_streamlit_rag_multi" # Directory to store FAISS index and manifest
 MANIFEST_FILE = os.path.join(FAISS_INDEX_DIR, "index_manifest.json")
