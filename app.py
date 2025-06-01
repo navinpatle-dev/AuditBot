@@ -21,7 +21,7 @@ except KeyError:
 except Exception as e: # Catch other potential errors like st.secrets not being available in some contexts
     st.error(f"Could not load API_KEY from Streamlit secrets: {e}")
     st.stop()
-DOCS_DIRECTORY = "C:\\Users\\Computer HuB\\Desktop\\Projects\\Audit RAG\\docs"  # Directory containing your documents
+DOCS_DIRECTORY = "docs"  # Directory containing your documents
 FAISS_INDEX_DIR = "faiss_index_streamlit_rag_multi" # Directory to store FAISS index and manifest
 MANIFEST_FILE = os.path.join(FAISS_INDEX_DIR, "index_manifest.json")
 SUPPORTED_EXTENSIONS = (".txt", ".md", ".pdf") # Add more like .pdf, .docx if you install parsers
