@@ -27,7 +27,7 @@ MANIFEST_FILE = os.path.join(FAISS_INDEX_DIR, "index_manifest.json")
 SUPPORTED_EXTENSIONS = (".txt", ".md", ".pdf") # Add more like .pdf, .docx if you install parsers
 
 st.set_page_config(layout="wide", page_title="� RAG Tool (Multi-Doc)")
-st.title("🧠 RAG Tool with Multiple Document Context")
+st.title("🧠 AuditBot")
 
 # --- Helper Functions & Caching ---
 
